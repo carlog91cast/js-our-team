@@ -45,12 +45,13 @@ console.log(team);
 
 // inizializzo una variabile agganciata all'elemento nel container mediante id
 const teamWrapper = document.getElementById('team-box');
+
 // creo un ciclo contenente l'array in cui inserisco le varie 'card'
 
-for (let i = 0; i < team.length; i++) {
+   for (let i = 0; i < team.length; i++) {
    let member = team[i];
    let teamCard = document.createElement('div');
-   teamCard.classList.add('col-4');
+   teamCard.classList.add('col-2');
    let textCard = document.createElement('div');
    textCard.classList.add('text-center');
    let newImage = document.createElement('img');
@@ -66,9 +67,11 @@ for (let i = 0; i < team.length; i++) {
     teamCard.append(newImage);
     textCard.append(newName);
     textCard.append(newRole);
+    console.log(teamCard);
+} 
 
-    
-}
+
+
 
 
 
