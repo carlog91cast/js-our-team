@@ -48,45 +48,65 @@ const teamWrapper = document.getElementById('team-box');
 
 // creo un ciclo contenente l'array in cui inserisco le varie 'card'
 
-   for (let i = 0; i < team.length; i++) {
-   let member = team[i];
-   let teamCard = document.createElement('div');
-   teamCard.classList.add('col-4');
-   let newImage = document.createElement('img');
-   newImage.innerHTML = member.image;
-   newImage.setAttribute( 'src', `./img/${team[i].image}`  );
-   let newName = document.createElement('h4');
-   newName.classList.add('mt-3');
-   newName.innerHTML = member.name;
-   let newRole = document.createElement('p');
-   newRole.innerHTML = member.role;
+for (let i = 0; i < team.length; i++) {
+    let member = team[i];
+    let teamCard = document.createElement('div');
+    teamCard.classList.add('col-4');
+    let newImage = document.createElement('img');
+    newImage.innerHTML = member.image;
+    newImage.setAttribute('src', `./img/${team[i].image}`);
+    let newName = document.createElement('h4');
+    newName.classList.add('mt-3');
+    newName.innerHTML = member.name;
+    let newRole = document.createElement('p');
+    newRole.innerHTML = member.role;
 
-//    aggancio gli elementi nell'html con append
+    //    aggancio gli elementi nell'html con append
     teamWrapper.append(teamCard);
     teamCard.append(newImage);
     teamCard.append(newName);
     teamCard.append(newRole);
-    
+
 };
 
 // creo un form per inserire nuovi membri
 
 const validButton = document.getElementById('btn-valid');
-validButton.addEventListener("click", addNewMembers);
+validButton.addEventListener('click', addNewMembers);
+    // / creo un oggetto per reinserire i nuovi elementi generati dal form
+    function addNewMembers(evt) {
+        evt.preventDefault();
+        let newMember = {
+            name: document.getElementById('inputName').value,
+            role: document.getElementById('inputRole').value,
+            image: document.getElementById('inputImg').value,
 
-// creo una funzione che inserita nel button mi inserisce i nuvi membri con le relative caratteristiche
+        };
+        let teamCard = document.createElement('div');
+        teamCard.classList.add('col-4');
+        let newImage = document.createElement('img');
+        newImage.innerHTML = newMember.image;
+        newImage.setAttribute('src', `./img/${newMember.image}`);
+        let newName = document.createElement('h4');
+        newName.classList.add('mt-3');
+        newName.innerHTML = newMember.name;
+        let newRole = document.createElement('p');
+        newRole.innerHTML = newMember.role;
+    
+        //    aggancio gli elementi nell'html con append
+        teamWrapper.append(teamCard);
+        teamCard.append(newImage);
+        teamCard.append(newName);
+        teamCard.append(newRole);
 
-function addNewMembers() {
-    // creo un oggetto per reinserire i nuovi elementi generati dal form
-    let newMembers = {
-        name: document.getElementById('inputName').value,
-        role: document.getElementById('inputRole').value,
-        image: document.getElementById('inputImg').value,
-        
+        team.push(newMember);
+        console.log(team);
     }
-    team.push(newMembers);
-    
-};
+
+
+// // aggancio il membro inserito nel form all'html
+// let newCard = newMembers;
+// teamWrapper.append(newCard);
 
 
 
@@ -94,9 +114,20 @@ function addNewMembers() {
 
 
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
