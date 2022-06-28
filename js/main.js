@@ -73,40 +73,44 @@ for (let i = 0; i < team.length; i++) {
 
 const validButton = document.getElementById('btn-valid');
 validButton.addEventListener('click', addNewMembers);
-    // / creo un oggetto per reinserire i nuovi elementi generati dal form
-    function addNewMembers(evt) {
-        evt.preventDefault();
-        let newMember = {
-            name: document.getElementById('inputName').value,
-            role: document.getElementById('inputRole').value,
-            image: document.getElementById('inputImg').value,
+// / creo un oggetto per reinserire i nuovi elementi generati dal form
+function addNewMembers(evt) {
+    evt.preventDefault();
+    let newMember = {
+        name: document.getElementById('inputName').value,
+        role: document.getElementById('inputRole').value,
+        image: document.getElementById('inputImg').value,
 
-        };
-        let teamCard = document.createElement('div');
-        teamCard.classList.add('col-4');
-        let newImage = document.createElement('img');
-        newImage.innerHTML = newMember.image;
-        newImage.setAttribute('src', `./img/${newMember.image}`);
-        let newName = document.createElement('h4');
-        newName.classList.add('mt-3');
-        newName.innerHTML = newMember.name;
-        let newRole = document.createElement('p');
-        newRole.innerHTML = newMember.role;
+    };
+
+    let teamCard = document.createElement('div');
+    teamCard.classList.add('col-4');
+    let newImage = document.createElement('img');
+    newImage.innerHTML = newMember.image;
+    newImage.setAttribute('src', `./img/${newMember.image}`);
+    let newName = document.createElement('h4');
+    newName.classList.add('mt-3');
+    newName.innerHTML = newMember.name;
+    let newRole = document.createElement('p');
+    newRole.innerHTML = newMember.role;
+
+    //    aggancio gli elementi nell'html con append
+    teamWrapper.append(teamCard);
+    teamCard.append(newImage);
+    teamCard.append(newName);
+    teamCard.append(newRole);
+
+    team.push(newMember);
+    console.log(team)
+
+}
+
+
+
     
-        //    aggancio gli elementi nell'html con append
-        teamWrapper.append(teamCard);
-        teamCard.append(newImage);
-        teamCard.append(newName);
-        teamCard.append(newRole);
-
-        team.push(newMember);
-        console.log(team);
-    }
-
 
 // // aggancio il membro inserito nel form all'html
-// let newCard = newMembers;
-// teamWrapper.append(newCard);
+
 
 
 
