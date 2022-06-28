@@ -67,7 +67,26 @@ const teamWrapper = document.getElementById('team-box');
     teamCard.append(newName);
     teamCard.append(newRole);
     
-} 
+};
+
+// creo un form per inserire nuovi membri
+
+const validButton = document.getElementById('btn-valid');
+validButton.addEventListener("click", addNewMembers);
+
+// creo una funzione che inserita nel button mi inserisce i nuvi membri con le relative caratteristiche
+
+function addNewMembers() {
+    // creo un oggetto per reinserire i nuovi elementi generati dal form
+    let newMembers = {
+        name: document.getElementById('inputName').value,
+        role: document.getElementById('inputRole').value,
+        image: document.getElementById('inputImg').value,
+        
+    }
+    team.push(newMembers);
+    
+};
 
 
 
