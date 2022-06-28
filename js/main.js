@@ -51,23 +51,21 @@ const teamWrapper = document.getElementById('team-box');
    for (let i = 0; i < team.length; i++) {
    let member = team[i];
    let teamCard = document.createElement('div');
-   teamCard.classList.add('col-2');
-   let textCard = document.createElement('div');
-   textCard.classList.add('text-center');
+   teamCard.classList.add('col-4');
    let newImage = document.createElement('img');
    newImage.innerHTML = member.image;
+   newImage.setAttribute( 'src', `"./img/"${team[i].image}`  );
    let newName = document.createElement('h4');
    newName.innerHTML = member.name;
    let newRole = document.createElement('p');
-   newRole.classList.add('text-center');
    newRole.innerHTML = member.role;
 
 //    aggancio gli elementi nell'html con append
-
+    teamWrapper.append(teamCard);
     teamCard.append(newImage);
-    textCard.append(newName);
-    textCard.append(newRole);
-    console.log(teamCard);
+    teamCard.append(newName);
+    teamCard.append(newRole);
+    
 } 
 
 
